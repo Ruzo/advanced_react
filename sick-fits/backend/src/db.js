@@ -1,3 +1,4 @@
+// Connection to the Prisma DB
 const { Prisma } = require("prisma-binding");
 
 const db = new Prisma({
