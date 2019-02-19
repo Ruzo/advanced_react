@@ -1,8 +1,15 @@
 const Mutations = {
-  createCat(parent, args, ctx, info) {
-    global.cats = global.cats || [];
-    global.cats.push({ name: args.name });
-    return { name: args.name };
+  async createItem(parent, args, ctx, info) {
+    const item = await ctx.db.mutation.createItem(
+      {
+        data: {
+          ...args,
+        },
+      },
+      info
+    );
+
+    return item;
   },
 };
 

@@ -1,7 +1,7 @@
 const Query = {
-  cats(parent, args, ctx, info) {
-    global.cats = global.cats || [];
-    return global.cats;
+  async items(parent, args, ctx, info) {
+    const items = await ctx.db.query.items();
+    return items;
   },
 };
 
